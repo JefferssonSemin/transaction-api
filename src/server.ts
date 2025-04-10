@@ -1,11 +1,25 @@
 import fastify from 'fastify'
 import { conn } from './database'
+import crypto from 'node:crypto'
+
 const app = fastify()
 
-app.get('/hello', async () => {
-  const tables = await conn('sqlite_schema').select('*')
+app.post('/hello', async () => {
+  const transaction = await conn('deliveryman')
+    .insert({
+      id: crypto.randomUUID(),
+      name: 'jeff',
+      // cpf: '096.089.009-21',
+    })
+    .returning('*')
 
-  return tables
+  return transaction
+})
+
+app.get('/hello', async () => {
+  const transaction = await conn('deliveryman').select('*')
+
+  return transaction
 })
 
 app

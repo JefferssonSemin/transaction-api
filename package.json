@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "knex" : "node --import tsx ./node_modules/.bin/knex",
+    "knex": "node --import tsx ./node_modules/.bin/knex",
     "dev": "tsx watch src/server.ts",
     "lint": "eslint src --ext .ts"
   },
@@ -22,6 +22,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "dotenv": "^16.4.7",
     "fastify": "^5.2.2",
     "knex": "^3.1.0",
     "sqlite3": "^5.1.7"
