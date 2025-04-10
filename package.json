@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "knex" : "node --import tsx ./node_modules/.bin/knex",
     "dev": "tsx watch src/server.ts",
     "lint": "eslint src --ext .ts"
   },
