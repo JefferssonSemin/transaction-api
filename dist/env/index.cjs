@@ -28,7 +28,8 @@ var import_zod = require("zod");
 var envSchema = import_zod.z.object({
   NODE_ENV: import_zod.z.enum(["development", "test", "production"]).default("production"),
   DATABASE_URL: import_zod.z.string(),
-  PORT: import_zod.z.number().default(3333)
+  DATABASE_CLIENT: import_zod.z.enum(["sqlite", "pg"]),
+  PORT: import_zod.z.coerce.number().default(3333)
 });
 var _env = envSchema.safeParse(process.env);
 if (_env.success === false) {
