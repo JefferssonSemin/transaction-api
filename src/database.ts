@@ -12,4 +12,4 @@ export const config: Knex.Config = {
     directory: './db/migrations',
   },
 }
-export const conn = knex(config)
+export const knext = knex(config)
